@@ -1,4 +1,7 @@
-( () => {
+import checkComplete from './components/checkComplete.js';
+import deleteIcon from './components/deleteIcon.js';
+
+// ( () => {
 
 const btn = document.querySelector('[data-form-btn]');
 
@@ -28,18 +31,17 @@ const createTask = (evento) => {
     taskContent.appendChild(checkComplete());
     // Agrego la estructura al elemento padre
     taskContent.appendChild(titleTask);
+    
     /* const content = `<div>
                         ${checkComplete()}
                         <span class="task">${value}</span>
                     </div>
                     <i class="fas fa-trash-alt trashIcon icon"></i>`; */
-    const content = `
-                        
-                        
-                    
-                    <i class="fas fa-trash-alt trashIcon icon"></i>`;
+    // const content = `
+    //                 <i class="fas fa-trash-alt trashIcon icon"></i>`;
     // task.innerHTML = content;
     task.appendChild(taskContent);
+    task.appendChild(deleteIcon());
     list.appendChild(task);
     // console.log(content);
 };
@@ -73,33 +75,9 @@ const createTask = (evento) => {
 
 btn.addEventListener("click", createTask);
 
-// Creamos una nueva funcion
-const checkComplete = () => {
-    // Creo el elemento
-    const i = document.createElement("i");
-    // Le agrego las clases
-    i.classList.add("far","fa-check-square","icon");
-    // i.classList.add("fa-check-square");
-    // i.classList.add("icon");
-    i.addEventListener("click", completeTask);
-    // regreso el elemento i
-    return i
-}
 
-// Inmediately invoked function expressions IIEF
-const completeTask = (event) => {
-    // console.log(event.target);
-    const element = event.target;
-    // Agregamos la clase fas
-    // element.classList.add("fas");
-    // toggle verifica si existe o no la clase
-    element.classList.toggle("fas");
-    // Agregamos la clase del color(css)
-    // element.classList.add('completeIcon');
-    element.classList.toggle('completeIcon');
-    // Quitaos la clase
-    // element.classList.remove("far");
-    element.classList.toggle("far");
-}
+
+
+
 // Para que funcione la funcion la mando a llamar inmediatamente()
-})();
+// })();
